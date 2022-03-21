@@ -1,0 +1,155 @@
+class Matrix {
+	field Array matMem;
+	field int size;
+	
+	constructor Matrix new(int n) {
+		var int i;
+		let size = n;
+		let matMem = Array.new((n*n));
+		let i = 0;
+		while (i < (size * size)) {
+			let matMem[i] = 0;
+			let i = i + 1;
+		}
+		return this;
+	}
+	
+	method int getElem( int i, int j) {
+		if ((~(i < size)) | (~(j < size)) | (i < 0) | (j < 0)) {
+			do Sys.halt();
+		}
+		return matMem[i*size + j];
+	}
+	
+	method void setElem ( int v, int i, int j) {
+		if ((~(i < size)) | (~(j < size)) | (i < 0) | (j < 0)) {
+			do Sys.halt();
+		}
+		let matMem[i*size + j] = v;
+		return;
+	}
+	
+	method int getSize() {
+		return size;
+	}
+	
+	method void add(Matrix B) {
+		var int i,j;
+		if (~(size = B.getSize())) {
+			do Sys.halt();
+		}
+		
+		let i = 0;
+		while (i < size) {
+			let j = 0;
+			while (j < size) {
+				let matMem[i*size + j] = matMem[i*size + j] + B.getElem(i,j);
+				let j = j + 1;
+			}
+			let i = i + 1;
+		}
+		
+		return;
+	}
+	
+	method void multScalar(int s) {
+		var int i;
+		
+		let i = 0;
+		while (i < (size * size)) {
+			let matMem[i] = matMem[i] * s;
+			let i = i + 1;
+		}
+		return;
+	}
+	
+	method void multMat(Matrix B) {
+		var int i, j, k;
+		var Array matMem2;
+		 
+		if (~(size = (B.getSize()))){
+			do Sys.halt();
+		}
+		
+		let matMem2 = Array.new((size * size));
+		while (i < (size * size)) {
+			let matMem2[i] = 0;
+			let i = i + 1;
+		}
+		
+		let i = 0;
+		while (i < size) {
+			let j = 0;
+			while (j < size) {
+				let k = 0;
+				while (k < size) {
+					let matMem2[i*size + j] = (matMem[i * size + k] * B.getElem(k, j)) + matMem2[i*size + j];
+					let k = k + 1;
+				}
+				let j = j + 1;
+			}
+			let i = i + 1;
+		}
+		
+		let i = 0;
+		while (i < (size * size)) {
+			let matMem[i] = matMem2[i];
+			let i = i + 1;
+		}
+		do matMem2.dispose();
+		return;
+	}
+	
+	function Matrix eye( int n) {
+		var Matrix M;
+		var int i;
+		
+		let M = Matrix.new(n);
+		
+		let i = 0;
+		
+		while (i < n) {
+			do M.setElem(1, i, i);
+			let i = i + 1;
+		}
+		
+		return M;
+	}
+	
+	method void dispose () {
+		do Memory.deAlloc(this);
+		return;
+	}
+	
+	function void print(Matrix M){
+		var int i, j, t;
+		let t = M.getSize();
+		let i = 0;
+		while (i < t) {
+			let j = 0;
+			while (j < t) {
+				do Output.printInt(M.getElem(i,j));
+				do Output.printChar(32);
+				let j = j+1;
+			}
+			do Output.println();
+			let i = i + 1;
+		}
+		return;
+	}
+	
+	method int norm () {
+		var int i, v;
+		
+		let v = 0;
+		
+		let i = 0;
+		
+		while (i < (size * size)) {
+			let v = v + Math.multiply(matMem[i], matMem[i]);
+			let i = i + 1;
+		}
+		
+		return Math.sqrt(v);
+	}
+}

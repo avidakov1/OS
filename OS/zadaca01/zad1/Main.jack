@@ -1,0 +1,69 @@
+class Main {
+	function boolean validExpression(String expression) {
+		var String brackets;
+		var int len_e, len_b, i, err;
+		var char chr;
+		var boolean bool;
+		
+		let len_e = expression.length();
+		
+		let brackets = String.new(len_e);
+		
+		let i = 0;
+		
+		let len_b = 0;
+		
+		let bool = true;
+		
+		while ((i < len_e) & (bool)){
+			let chr = expression.charAt(i);
+			if ((chr=40) | (chr=91) | (chr=123)) {
+				do brackets.appendChar(expression.charAt(i));
+				let len_b = len_b + 1;
+			}
+			
+			if ((chr=41) | (chr=93) | (chr=125)) {
+				if (len_b = 0){
+					let bool = false;
+				}
+				else {				
+					if (((chr = 41) & (brackets.charAt(len_b - 1) = 40)) | ((chr = 93) & (brackets.charAt(len_b - 1) = 91)) | ((chr = 125) & (brackets.charAt(len_b - 1) = 123))){
+						do brackets.eraseLastChar();
+						let len_b = len_b - 1;
+					}
+					else {
+						let bool = false;
+					}
+				}
+			}
+			
+			let i = i + 1;
+		}
+		
+		if ((bool) & (~(len_b = 0))) {
+			let bool = false;
+		}
+		
+		return bool;
+	}
+
+	function void main () {
+		var String expression;
+		var boolean b;
+		
+		let expression = Keyboard.readLine("Input expression: ");		
+		
+		let b = Main.validExpression(expression);
+		
+		if (b) {
+			do Output.printString("true");
+		}
+		else {
+			do Output.printString("false");
+		}
+		
+		do expression.dispose();
+		
+		return;
+	}
+}

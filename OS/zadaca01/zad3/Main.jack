@@ -1,0 +1,204 @@
+class Main {
+    function Array makeXValues() {
+		var Array xs;
+
+		let xs = Array.new(60);
+		let xs[0] = 0.0;
+		let xs[1] = 10.0;
+		let xs[2] = 21.0;
+		let xs[3] = 31.0;
+		let xs[4] = 41.0;
+		let xs[5] = 50.0;
+		let xs[6] = 59.0;
+		let xs[7] = 67.0;
+		let xs[8] = 74.0;
+		let xs[9] = 81.0;
+		let xs[10] = 87.0;
+		let xs[11] = 91.0;
+		let xs[12] = 95.0;
+		let xs[13] = 98.0;
+		let xs[14] = 99.0;
+		let xs[15] = 100.0;
+		let xs[16] = 99.0;
+		let xs[17] = 98.0;
+		let xs[18] = 95.0;
+		let xs[19] = 91.0;
+		let xs[20] = 87.0;
+		let xs[21] = 81.0;
+		let xs[22] = 74.0;
+		let xs[23] = 67.0;
+		let xs[24] = 59.0;
+		let xs[25] = 50.0;
+		let xs[26] = 41.0;
+		let xs[27] = 31.0;
+		let xs[28] = 21.0;
+		let xs[29] = 10.0;
+		let xs[30] = 0.0;
+		let xs[31] = -10.0;
+		let xs[32] = -21.0;
+		let xs[33] = -31.0;
+		let xs[34] = -41.0;
+		let xs[35] = -50.0;
+		let xs[36] = -59.0;
+		let xs[37] = -67.0;
+		let xs[38] = -74.0;
+		let xs[39] = -81.0;
+		let xs[40] = -87.0;
+		let xs[41] = -91.0;
+		let xs[42] = -95.0;
+		let xs[43] = -98.0;
+		let xs[44] = -99.0;
+		let xs[45] = -100.0;
+		let xs[46] = -99.0;
+		let xs[47] = -98.0;
+		let xs[48] = -95.0;
+		let xs[49] = -91.0;
+		let xs[50] = -87.0;
+		let xs[51] = -81.0;
+		let xs[52] = -74.0;
+		let xs[53] = -67.0;
+		let xs[54] = -59.0;
+		let xs[55] = -50.0;
+		let xs[56] = -41.0;
+		let xs[57] = -31.0;
+		let xs[58] = -21.0;
+		let xs[59] = -10.0;
+
+		return xs;
+	}
+
+	function Array makeYValues() {
+		var Array ys;
+
+		let ys = Array.new(60);
+		let ys[0] = 100.0;
+		let ys[1] = 99.0;
+		let ys[2] = 98.0;
+		let ys[3] = 95.0;
+		let ys[4] = 91.0;
+		let ys[5] = 87.0;
+		let ys[6] = 81.0;
+		let ys[7] = 74.0;
+		let ys[8] = 67.0;
+		let ys[9] = 59.0;
+		let ys[10] = 50.0;
+		let ys[11] = 41.0;
+		let ys[12] = 31.0;
+		let ys[13] = 21.0;
+		let ys[14] = 10.0;
+		let ys[15] = 0.0;
+		let ys[16] = -10.0;
+		let ys[17] = -21.0;
+		let ys[18] = -31.0;
+		let ys[19] = -41.0;
+		let ys[20] = -50.0;
+		let ys[21] = -59.0;
+		let ys[22] = -67.0;
+		let ys[23] = -74.0;
+		let ys[24] = -81.0;
+		let ys[25] = -87.0;
+		let ys[26] = -91.0;
+		let ys[27] = -95.0;
+		let ys[28] = -98.0;
+		let ys[29] = -99.0;
+		let ys[30] = -100.0;
+		let ys[31] = -99.0;
+		let ys[32] = -98.0;
+		let ys[33] = -95.0;
+		let ys[34] = -91.0;
+		let ys[35] = -87.0;
+		let ys[36] = -81.0;
+		let ys[37] = -74.0;
+		let ys[38] = -67.0;
+		let ys[39] = -59.0;
+		let ys[40] = -50.0;
+		let ys[41] = -41.0;
+		let ys[42] = -31.0;
+		let ys[43] = -21.0;
+		let ys[44] = -10.0;
+		let ys[45] = -0.0;
+		let ys[46] = 10.0;
+		let ys[47] = 21.0;
+		let ys[48] = 31.0;
+		let ys[49] = 41.0;
+		let ys[50] = 50.0;
+		let ys[51] = 59.0;
+		let ys[52] = 67.0;
+		let ys[53] = 74.0;
+		let ys[54] = 81.0;
+		let ys[55] = 87.0;
+		let ys[56] = 91.0;
+		let ys[57] = 95.0;
+		let ys[58] = 98.0;
+		let ys[59] = 99.0;
+
+		return ys;
+	}
+
+    function void drawMinute(boolean t, int middle, int lenM, int xArrayVal, int yArrayVal) {
+		do Screen.setColor(t);
+		do Screen.drawLine(middle, middle, middle+Math.divide((lenM*xArrayVal),100), middle-Math.divide((lenM*yArrayVal),100));
+		do Screen.drawCircle(middle+Math.divide(((lenM-10)*xArrayVal),100), middle-Math.divide(((lenM-10)*yArrayVal),100), 5);
+		return;
+	}
+
+    function void drawHour(boolean t, int middle, int lenH, int xArrayVal, int yArrayVal) {
+		do Screen.setColor(t);
+		do Screen.drawLine(middle, middle, middle+Math.divide((lenH*xArrayVal),100), middle-Math.divide((lenH*yArrayVal),100));
+		do Screen.drawCircle(middle+Math.divide(((lenH-10)*xArrayVal),100), middle-Math.divide(((lenH-10)*yArrayVal),100), 7);
+		return;
+	}
+
+    function void main() {
+        var Array xArray, yArray;
+        var int sec, min, hour, lenS, lenM, lenH, middle, innerR, i;
+
+        let xArray = Main.makeXValues();
+        let yArray = Main.makeYValues();
+        let sec = 0;
+        let min = 0;
+        let hour = 0;
+        let middle = 125;
+		let innerR = 100;
+		let lenH = Math.divide(innerR, 2);
+		let lenM = Math.divide(innerR*3, 4);
+		let lenS = Math.divide(innerR*9, 10);
+        do Screen.setColor(true);
+        do Screen.drawCircle(middle,middle,innerR+10);
+        do Screen.setColor(false);
+        do Screen.drawCircle(middle,middle,innerR);
+        do Screen.setColor(true);
+        let i = 0;
+		while (i < 60) {
+			do Screen.drawCircle(middle+Math.divide((innerR*xArray[i]),100), middle-Math.divide((innerR*yArray[i]),100), 3);
+			let i = i+5;
+		}
+
+        do Main.drawMinute(true, middle, lenM, xArray[min], yArray[min]);
+        do Main.drawHour(true, middle, lenH, xArray[hour], yArray[hour]);
+
+        while (~(Keyboard.keyPressed() = 32)){
+			let sec = sec + 1;
+            if (sec = 60) {
+                do Main.drawMinute(false, middle, lenM, xArray[min], yArray[min]);
+                do Main.drawHour(false, middle, lenH, xArray[hour], yArray[hour]);
+				let sec = 0;
+				let min = min + 1;
+				if (min = 60) {
+					let min = 0;
+				}
+				if ((min - (12*Math.divide(min,12))) = 0) {
+					let hour = hour + 1;
+				}
+				if (hour = 60) {
+					let hour = 0;
+                }
+                do Main.drawMinute(true, middle, lenM, xArray[min], yArray[min]);
+                do Main.drawHour(true, middle, lenH, xArray[hour], yArray[hour]);
+			}
+			do Sys.wait(10);
+		}
+
+        return;
+    }
+}

@@ -1,0 +1,32 @@
+class Main {
+	function void main() {
+		var Matrix A, B;
+		var int k;
+		
+		let k = 2;
+		
+		let A = Matrix.eye(k);
+		
+		do A.setElem(1,0,1);
+		
+		do Matrix.print(A);
+		do Output.println();
+		
+		do A.multMat(A);
+		
+		do Matrix.print(A);
+		do Output.println();
+		
+		do A.multMat(A);
+		
+		do Matrix.print(A);
+		do Output.println();
+		
+		do A.multMat(A);
+		
+		do Matrix.print(A);
+		do Output.println();
+		
+		return;
+	}
+}
