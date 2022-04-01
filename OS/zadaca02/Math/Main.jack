@@ -1,0 +1,14 @@
+class Main
+{
+    function void main()
+    {
+        do Output.printString("divide(-30,-5) = ");
+        do Output.printInt(Math.divide(-30,5));
+        do Output.println();
+
+        do Output.printString("log(30) = ");
+        do Output.printInt(Math.log(30));
+        do Output.println();
+        return;
+    }
+}

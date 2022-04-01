@@ -1,0 +1,35 @@
+class Main
+{
+    function void main()
+    {
+        var Array A, B, C;
+        
+        do Memory.deFragment();
+
+        let A = Array.new(5);
+        let A[1] = 14;
+        let A[2] = 13;
+        let A[3] = 12;
+        let A[4] = 11;
+
+        let B = Array.new(5);
+        let B[1] = 11;
+        let B[2] = 12;
+        let B[3] = 13;
+        let B[4] = 14;
+
+        let C = Array.new(5);
+        let C[0] = 1;
+        let C[1] = 1;
+        let C[2] = 1;
+        let C[3] = 1;
+        let C[4] = 1;
+        
+        do Memory.deAlloc(B);
+        do Memory.deAlloc(A);
+
+        do Memory.deFragment();
+
+        return;
+    }
+}
