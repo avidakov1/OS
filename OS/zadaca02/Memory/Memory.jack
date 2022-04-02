@@ -97,7 +97,7 @@ class Memory {
         while (~(curr = 0)) {
             let bool = true;
             let next = ram[curr];
-            let try = ram[curr];
+            let try = freeList;
             while ( (bool) & (~(try = 0))) {
                 if ((try + ram[try+1] + 2) = curr){
                     let bool = false;
