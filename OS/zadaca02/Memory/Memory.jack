@@ -91,9 +91,10 @@ class Memory {
 
     function void deFragment()
     {
-        var int curr, next, try;
+        var int curr, next, try, prev;
         var boolean bool;
         let curr = freeList;
+        let prev = freeList;
         while (~(curr = 0)) {
             let bool = true;
             let next = ram[curr];
@@ -102,12 +103,16 @@ class Memory {
                 if ((try + ram[try+1] + 2) = curr){
                     let bool = false;
                     let ram[try + 1] = ram[try + 1] + 2 + ram[curr + 1];
-                    if (curr = freeList) {
+                    if (prev = freeList) {
                         let freeList = next;
+                    }
+                    else {
+                        let ram[prev] = next;
                     }
                 }
                 let try = ram[try];
             }
+            let next = curr;
             let curr = next;
         }
         return;
