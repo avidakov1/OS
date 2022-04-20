@@ -208,12 +208,12 @@ class Output {
             // check if we should write to the left or right side
             if (cursorX & 1 = 0) // cursor % 2 == 0
             { 
-                let value = Memory.peek(address) & (~(511));
+                let value = Memory.peek(address) & (~(255));
                 do Memory.poke(address, value);
             }
             else
             {
-                let value = Memory.peek(address) & 511;
+                let value = Memory.peek(address) & 255;
                 do Memory.poke(address, value);
                 let row = row * 256; 
             }
